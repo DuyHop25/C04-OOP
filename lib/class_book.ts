@@ -16,7 +16,7 @@ export class book {
    * @param publisher Tên nhà xuất bản
    * @returns Số lượng quyển sách thuộc nhà xuất bản publisher
    */
-  countBooksOfPublisher(books: Book[], publisher: string = ""): number {
+  public countBooksOfPublisher(books: Book[], publisher: string = ""): number {
     if (publisher == "")
       return books.length;
 
@@ -38,7 +38,7 @@ export class book {
    * @param max Giá lớn nhất
    * @returns Mảng các quyển sách có giá trong đoạn [min, max]
    */
-  filterByPrice(books: Book[], min: number, max: number): Book[] {
+  public filterByPrice(books: Book[], min: number, max: number): Book[] {
     let arr: Book[] = [];
 
     for (let i: number = 0; i < books.length; i++) {
@@ -57,7 +57,7 @@ export class book {
    * @param books Mảng các quyển sách
    * @returns Tên quyển sách có giá cao nhất
    */
-  findMaxPrice(books: Book[]): number[] {
+  public findMaxPrice(books: Book[]): number[] {
     // Nếu mảng sách rỗng thì không cần tìm và trả về mảng rỗng
     if (books.length == 0)
       return [];
@@ -87,7 +87,7 @@ export class book {
    * @param books Mảng các quyển sách
    * @returns Giá trung bình
   */
-  getAveragePrice(books: Book[]): number {
+  public getAveragePrice(books: Book[]): number {
     let sum: number = 0;
     const len: number = books.length; // Lưu trữ độ dài của mảng books để tránh tính toán lại trong vòng lặp
 
@@ -107,7 +107,7 @@ export class book {
    * @param dieuKien Điều kiện kiểm tra hợp lệ
    * @returns true nếu hợp lệ, ngược lại trả về false
    */
-  getIsValidFunction(books: Book[]): boolean {
+  public getIsValidFunction(books: Book[]): boolean {
     const condition = (book: Book) => book.price > 0 && book.name != "";
 
     // Khai báo hàm để kiểm tra mảng hợp lệ hay không
@@ -129,7 +129,7 @@ export class book {
    * @param keyword Từ khóa dùng để tìm kiếm
    * @returns Mảng các quyển sách thỏa yêu cầu
   */
-  searchByName(books: Book[], keyword: string): Book[] {
+  public searchByName(books: Book[], keyword: string): Book[] {
     keyword = toLowerCase(keyword);
     const filteredBooks: Book[] = []; // Mảng kết quả
     const scores: number[] = []; // Mảng lưu điểm của từng quyển sách trong filteredBooks
